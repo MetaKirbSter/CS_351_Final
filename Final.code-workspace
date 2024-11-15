@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../Unity Projects/RPG Tutorial"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"dotnet.defaultSolution": "RPG Tutorial.sln"
+	}
+}
