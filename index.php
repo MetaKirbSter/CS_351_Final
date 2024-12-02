@@ -45,23 +45,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $album = htmlspecialchars($_POST['album']);
         $artist = htmlspecialchars($_POST['artist']);
         $release_date = htmlspecialchars($_POST['release_date']);
+        $listen_date = htmlspecialchars($_POST['listen_date']);
+        $music_platform = htmlspecialchars($_POST['music_platform']);
+        $collection_status = htmlspecialchars($_POST['collection_status']);
         
-        $insert_sql = 'INSERT INTO projects (album, title, publisher) VALUES (:album, :title, :publisher)';
+        $insert_sql = 'INSERT INTO projects (album, artist, release_date, listen_date, music_platform, collection_status) VALUES (:album, :artist, :release_date, :listen_date, :music_platform, :collection_status)';
         $stmt_insert = $pdo->prepare($insert_sql);
-        $stmt_insert->execute(['album' => $album, 'title' => $title, 'publisher' => $publisher]);
-    } elseif (isset($_POST['delete_id'])) {
-        // Delete an entry
-        $delete_id = (int) $_POST['delete_id'];
-        
-        $delete_sql = 'DELETE FROM projects WHERE id = :id';
-        $stmt_delete = $pdo->prepare($delete_sql);
-        $stmt_delete->execute(['id' => $delete_id]);
-    }
+        $stmt_insert->execute(['album' => $album, 'artist' => $artist, 'release_date' => $release_date, 'listen_date' => $listen_date, 'music_platform' => $music_platform, 'collection_status' => $collection_status]);
+    } 
 }
 
 // Get all projects for main table
 //comment again/
-$sql = 'SELECT id, album, title, publisher FROM projects';
+$sql = 'SELECT id, album, artist, release_date, listen_date, music_platform, collection_status, FROM projects';
 $stmt = $pdo->query($sql);
 ?>
 
@@ -69,18 +65,18 @@ $stmt = $pdo->query($sql);
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Betty's project Banning and Bridge Building</title>
+    <title>Music Tracker Log!</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Hero Section -->
     <div class="hero-section">
-        <h1 class="hero-title">Betty's project Banning and Bridge Building</h1>
-        <p class="hero-subtitle">"Because nothing brings a community together like collectively deciding what others shouldn't read!"</p>
+        <h1 class="hero-title">Music Tracker Log</h1>
+        <p class="hero-subtitle">"Because RateYourMusic is too pretentious!"</p>
         
         <!-- Search moved to hero section -->
         <div class="hero-search">
-            <h2>Search for a project to Ban</h2>
+            <h2>Search for an album/EP:</h2>
             <form action="" method="GET" class="search-form">
                 <label for="search">Search by Title:</label>
                 <input type="text" id="search" name="search" required>
@@ -96,9 +92,11 @@ $stmt = $pdo->query($sql);
                                 <tr>
                                     <th>ID</th>
                                     <th>Album</th>
-                                    <th>Title</th>
-                                    <th>Publisher</th>
-                                    <th>Actions</th>
+                                    <th>Artist</th>
+                                    <th>Release Date</th>
+                                    <th>Listen Date</th>
+                                    <th>Platform</th>
+                                    <th>Collection Status</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -106,12 +104,14 @@ $stmt = $pdo->query($sql);
                                 <tr>
                                     <td><?php echo htmlspecialchars($row['id']); ?></td>
                                     <td><?php echo htmlspecialchars($row['album']); ?></td>
-                                    <td><?php echo htmlspecialchars($row['title']); ?></td>
-                                    <td><?php echo htmlspecialchars($row['publisher']); ?></td>
+                                    <td><?php echo htmlspecialchars($row['artist']); ?></td>
+                                    <td><?php echo htmlspecialchars($row['release_date']); ?></td>
+                                    <td><?php echo htmlspecialchars($row['listen_date']); ?></td>
+                                    <td><?php echo htmlspecialchars($row['music_platform']); ?></td>
+                                    <td><?php echo htmlspecialchars($row['collection_status']); ?></td>
                                     <td>
-                                        <form action="index5.php" method="post" style="display:inline;">
-                                            <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
-                                            <input type="submit" value="Ban!">
+                                        <form action="index.php" method="post" style="display:inline;">
+                                            <input type="submit" value="Add!">
                                         </form>
                                     </td>
                                 </tr>
@@ -128,15 +128,17 @@ $stmt = $pdo->query($sql);
 
     <!-- Table section with container -->
     <div class="table-container">
-        <h2>All projects in Database</h2>
+        <h2>All Albums in Database</h2>
         <table class="half-width-left-align">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Album</th>
-                    <th>Title</th>
-                    <th>Publisher</th>
-                    <th>Actions</th>
+                    <th>Artist</th>
+                    <th>Release Date</th>
+                    <th>Listen Date</th>
+                    <th>Platform</th>
+                    <th>Collection Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -144,11 +146,13 @@ $stmt = $pdo->query($sql);
                 <tr>
                     <td><?php echo htmlspecialchars($row['id']); ?></td>
                     <td><?php echo htmlspecialchars($row['album']); ?></td>
-                    <td><?php echo htmlspecialchars($row['title']); ?></td>
-                    <td><?php echo htmlspecialchars($row['publisher']); ?></td>
+                    <td><?php echo htmlspecialchars($row['artist']); ?></td>
+                    <td><?php echo htmlspecialchars($row['release_date']); ?></td>
+                    <td><?php echo htmlspecialchars($row['listen_date']); ?></td>
+                    <td><?php echo htmlspecialchars($row['music_platform']); ?></td>
+                    <td><?php echo htmlspecialchars($row['collection_status']); ?></td>
                     <td>
                         <form action="index5.php" method="post" style="display:inline;">
-                            <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
                             <input type="submit" value="Track!">
                         </form>
                     </td>
@@ -160,18 +164,18 @@ $stmt = $pdo->query($sql);
 
     <!-- Form section with container -->
     <div class="form-container">
-        <h2>Condemn a project Today</h2>
+        <h2>Add Music Today!</h2>
         <form action="index5.php" method="post">
             <label for="album">Album:</label>
             <input type="text" id="album" name="album" required>
             <br><br>
-            <label for="title">Title:</label>
-            <input type="text" id="title" name="title" required>
+            <label for="artist">Artist:</label>
+            <input type="text" id="artist" name="artist" required>
             <br><br>
-            <label for="publisher">Publisher:</label>
-            <input type="text" id="publisher" name="publisher" required>
+            <label for="publisher">Release Date:</label>
+            <input type="text" id="release_date" name="release_date" required>
             <br><br>
-            <input type="submit" value="Condemn project">
+            <input type="submit" value="Track album">
         </form>
     </div>
 </body>
