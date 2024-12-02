@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `ratings` (
-  'Album' text COLLATE utf8mb4_general_ci NOT NULL
+  'Album' text COLLATE utf8mb4_general_ci NOT NULL,
   `Rating` int NOT NULL,
   `Comments` text COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
