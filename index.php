@@ -10,7 +10,7 @@ if (!is_logged_in()) {
 }
 
 $host = 'localhost'; 
-$dbname = 'projects'; 
+$dbname = 'muzak'; 
 $user = 'meta'; 
 $pass = 'password';
 $charset = 'utf8mb4';
@@ -32,7 +32,7 @@ try {
 $search_results = null;
 if (isset($_GET['search']) && !empty($_GET['search'])) {
     $search_term = '%' . $_GET['search'] . '%';
-    $search_sql = 'SELECT id, author, title, publisher FROM projects WHERE title LIKE :search';
+    $search_sql = 'SELECT id, album, artist, release_date, listen_date, music_platform, collection_status FROM listen_log WHERE title LIKE :search';
     $search_stmt = $pdo->prepare($search_sql);
     $search_stmt->execute(['search' => $search_term]);
     $search_results = $search_stmt->fetchAll();
@@ -40,15 +40,15 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
 
 // Handle form submissions
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (isset($_POST['author']) && isset($_POST['title']) && isset($_POST['publisher'])) {
+    if (isset($_POST['album']) && isset($_POST['artist']) && isset($_POST['release_date']) && isset($_POST['listen_date']) && isset($_POST['music_platform']) && isset($_POST['collection_status'])) {
         // Insert new entry
-        $author = htmlspecialchars($_POST['author']);
-        $title = htmlspecialchars($_POST['title']);
-        $publisher = htmlspecialchars($_POST['publisher']);
+        $album = htmlspecialchars($_POST['album']);
+        $artist = htmlspecialchars($_POST['artist']);
+        $release_date = htmlspecialchars($_POST['release_date']);
         
-        $insert_sql = 'INSERT INTO projects (author, title, publisher) VALUES (:author, :title, :publisher)';
+        $insert_sql = 'INSERT INTO projects (album, title, publisher) VALUES (:album, :title, :publisher)';
         $stmt_insert = $pdo->prepare($insert_sql);
-        $stmt_insert->execute(['author' => $author, 'title' => $title, 'publisher' => $publisher]);
+        $stmt_insert->execute(['album' => $album, 'title' => $title, 'publisher' => $publisher]);
     } elseif (isset($_POST['delete_id'])) {
         // Delete an entry
         $delete_id = (int) $_POST['delete_id'];
@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 // Get all projects for main table
 //comment again/
-$sql = 'SELECT id, author, title, publisher FROM projects';
+$sql = 'SELECT id, album, title, publisher FROM projects';
 $stmt = $pdo->query($sql);
 ?>
 
@@ -95,7 +95,7 @@ $stmt = $pdo->query($sql);
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Author</th>
+                                    <th>Album</th>
                                     <th>Title</th>
                                     <th>Publisher</th>
                                     <th>Actions</th>
@@ -105,7 +105,7 @@ $stmt = $pdo->query($sql);
                                 <?php foreach ($search_results as $row): ?>
                                 <tr>
                                     <td><?php echo htmlspecialchars($row['id']); ?></td>
-                                    <td><?php echo htmlspecialchars($row['author']); ?></td>
+                                    <td><?php echo htmlspecialchars($row['album']); ?></td>
                                     <td><?php echo htmlspecialchars($row['title']); ?></td>
                                     <td><?php echo htmlspecialchars($row['publisher']); ?></td>
                                     <td>
@@ -133,7 +133,7 @@ $stmt = $pdo->query($sql);
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Author</th>
+                    <th>Album</th>
                     <th>Title</th>
                     <th>Publisher</th>
                     <th>Actions</th>
@@ -143,13 +143,13 @@ $stmt = $pdo->query($sql);
                 <?php while ($row = $stmt->fetch()): ?>
                 <tr>
                     <td><?php echo htmlspecialchars($row['id']); ?></td>
-                    <td><?php echo htmlspecialchars($row['author']); ?></td>
+                    <td><?php echo htmlspecialchars($row['album']); ?></td>
                     <td><?php echo htmlspecialchars($row['title']); ?></td>
                     <td><?php echo htmlspecialchars($row['publisher']); ?></td>
                     <td>
                         <form action="index5.php" method="post" style="display:inline;">
                             <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
-                            <input type="submit" value="Ban!">
+                            <input type="submit" value="Track!">
                         </form>
                     </td>
                 </tr>
@@ -162,8 +162,8 @@ $stmt = $pdo->query($sql);
     <div class="form-container">
         <h2>Condemn a project Today</h2>
         <form action="index5.php" method="post">
-            <label for="author">Author:</label>
-            <input type="text" id="author" name="author" required>
+            <label for="album">Album:</label>
+            <input type="text" id="album" name="album" required>
             <br><br>
             <label for="title">Title:</label>
             <input type="text" id="title" name="title" required>
