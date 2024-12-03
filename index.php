@@ -38,7 +38,9 @@ try {
 $search_results = null;
 if (isset($_GET['search']) && !empty($_GET['search'])) {
    $search_term = '%' . $_GET['search'] . '%';
-   $search_sql = 'SELECT id, album, artist, release_date, listen_date, music_platform, collection_status FROM listen_log WHERE title LIKE :search';
+   $search_sql = 'SELECT album, artist, release_date, listen_date, music_platform, collection_status 
+               FROM listen_log 
+               WHERE album LIKE :search OR artist LIKE :search';
    $search_stmt = $pdo->prepare($search_sql);
    $search_stmt->execute(['search' => $search_term]);
    $search_results = $search_stmt->fetchAll();
@@ -56,16 +58,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
        $music_platform = htmlspecialchars($_POST['music_platform']);
        $collection_status = htmlspecialchars($_POST['collection_status']);
       
-       $insert_sql = 'INSERT INTO projects (album, artist, release_date, listen_date, music_platform, collection_status) VALUES (:album, :artist, :release_date, :listen_date, :music_platform, :collection_status)';
+       $insert_sql = 'INSERT INTO listen_log (album, artist, release_date, listen_date, music_platform, collection_status) VALUES (:album, :artist, :release_date, :listen_date, :music_platform, :collection_status)';
        $stmt_insert = $pdo->prepare($insert_sql);
        $stmt_insert->execute(['album' => $album, 'artist' => $artist, 'release_date' => $release_date, 'listen_date' => $listen_date, 'music_platform' => $music_platform, 'collection_status' => $collection_status]);
    }
 }
 
-
-// Get all projects for main table
-//comment again/
-$sql = 'SELECT id, album, artist, release_date, listen_date, music_platform, collection_status, FROM projects';
+$sql = 'SELECT album, artist, release_date, listen_date, music_platform, collection_status FROM listen_log';
 $stmt = $pdo->query($sql);
 ?>
 
@@ -99,10 +98,9 @@ $stmt = $pdo->query($sql);
                        <table>
                            <thead>
                                <tr>
-                                   <th>ID</th>
                                    <th>Album</th>
                                    <th>Artist</th>
-                                   <th>Release Date</th>
+                                   <th>Release Date(YYYY-MM-DD)</th>
                                    <th>Listen Date</th>
                                    <th>Platform</th>
                                    <th>Collection Status</th>
@@ -111,7 +109,6 @@ $stmt = $pdo->query($sql);
                            <tbody>
                                <?php foreach ($search_results as $row): ?>
                                <tr>
-                                   <td><?php echo htmlspecialchars($row['id']); ?></td>
                                    <td><?php echo htmlspecialchars($row['album']); ?></td>
                                    <td><?php echo htmlspecialchars($row['artist']); ?></td>
                                    <td><?php echo htmlspecialchars($row['release_date']); ?></td>
@@ -142,10 +139,9 @@ $stmt = $pdo->query($sql);
        <table class="half-width-left-align">
            <thead>
                <tr>
-                   <th>ID</th>
                    <th>Album</th>
                    <th>Artist</th>
-                   <th>Release Date</th>
+                   <th>Release Date(YYYY-MM-DD)</th>
                    <th>Listen Date</th>
                    <th>Platform</th>
                    <th>Collection Status</th>
@@ -154,7 +150,6 @@ $stmt = $pdo->query($sql);
            <tbody>
                <?php while ($row = $stmt->fetch()): ?>
                <tr>
-                   <td><?php echo htmlspecialchars($row['id']); ?></td>
                    <td><?php echo htmlspecialchars($row['album']); ?></td>
                    <td><?php echo htmlspecialchars($row['artist']); ?></td>
                    <td><?php echo htmlspecialchars($row['release_date']); ?></td>
@@ -162,7 +157,7 @@ $stmt = $pdo->query($sql);
                    <td><?php echo htmlspecialchars($row['music_platform']); ?></td>
                    <td><?php echo htmlspecialchars($row['collection_status']); ?></td>
                    <td>
-                       <form action="index5.php" method="post" style="display:inline;">
+                       <form action="index.php" method="post" style="display:inline;">
                            <input type="submit" value="Track!">
                        </form>
                    </td>
@@ -176,14 +171,14 @@ $stmt = $pdo->query($sql);
    <!-- Form section with container -->
    <div class="form-container">
        <h2>Add Music Today!</h2>
-       <form action="index5.php" method="post">
+       <form action="index.php" method="post">
            <label for="album">Album:</label>
            <input type="text" id="album" name="album" required>
            <br><br>
            <label for="artist">Artist:</label>
            <input type="text" id="artist" name="artist" required>
            <br><br>
-           <label for="publisher">Release Date:</label>
+           <label for="publisher">Release Date(YYYY-MM-DD):</label>
            <input type="text" id="release_date" name="release_date" required>
            <br><br>
            <label for="album">Listen Date:</label>
