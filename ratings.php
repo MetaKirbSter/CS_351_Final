@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost'; 
-$dbname = 'ratings'; 
+$dbname = 'muzak'; 
 $user = 'meta'; 
 $pass = 'password';
 $charset = 'utf8mb4';
@@ -18,26 +18,18 @@ try {
     throw new PDOException($e->getMessage(), (int)$e->getCode());
 }
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (isset($_POST['field1']) && isset($_POST['field2'])  && isset($_POST['field3'])) {
-        // Insert new entry
-        $field1 = htmlspecialchars($_POST['field1']);
-        $field2 = htmlspecialchars($_POST['field2']);
-        $field3 = htmlspecialchars($_POST['field3']);
+// Insert new rating
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['album']) && isset($_POST['rating']) && isset($_POST['comments'])) {
+    $album = htmlspecialchars($_POST['album']);
+    $rating = htmlspecialchars($_POST['rating']);
+    $comments = htmlspecialchars($_POST['comments']);
 
-        $insert_sql = 'INSERT INTO data1 (field1, field2, field3) VALUES (:field1, :field2, :field3)';
-        $stmt_insert = $pdo->prepare($insert_sql);
-        $stmt_insert->execute(['field1' => $field1, 'field2' => $field2, 'field3' => $field3]);
-    } elseif (isset($_POST['delete_id'])) {
-        // Delete an entry
-        $delete_id = (int) $_POST['delete_id'];
-        $delete_sql = 'DELETE FROM data1 WHERE entry_id = :entry_id';
-        $stmt_delete = $pdo->prepare($delete_sql);
-        $stmt_delete->execute(['entry_id' => $delete_id]);
-    }
+    $insert_sql = 'INSERT INTO ratings (album, rating, comments) VALUES (:album, :rating, :comments)';
+    $stmt_insert = $pdo->prepare($insert_sql);
+    $stmt_insert->execute(['album' => $album, 'rating' => $rating, 'comments' => $comments]);
 }
 
-$sql = 'SELECT entry_id, field1, field2, field3 FROM ratings';
+$sql = 'SELECT album, rating, comments FROM ratings';
 $stmt = $pdo->query($sql);
 ?>
 
@@ -50,20 +42,20 @@ $stmt = $pdo->query($sql);
 </head>
 <body>
     <h2>Add New Rating</h2>
-    <form action="index3.php" method="post">
-        <label for="field1">Album Name:</label>
-        <input type="text" id="field1" name="field1" required>
+    <form action="ratings.php" method="post">
+        <label for="album">Album Name:</label>
+        <input type="text" id="album" name="album" required>
         <br><br>
-        <label for="field2">Rating:</label>
-        <input type="text" id="field2" name="field2" required>
+        <label for="rating">Rating:</label>
+        <input type="text" id="rating" name="rating" required>
         <br><br>
-        <label for="field3">Comments:</label>
-        <input type="text" id="field3" name="field3" required>
+        <label for="comments">Comments:</label>
+        <input type="text" id="comments" name="comments" required>
         <br><br>
         <input type="submit" value="Add Entry">
     </form>
 
-    <h1>Project Data Listing from Table 'data1'</h1>
+    <h1>Ratings Data</h1>
     <table class="half-width-left-align">
         <thead>
             <tr>
@@ -76,19 +68,18 @@ $stmt = $pdo->query($sql);
         <tbody>
             <?php while ($row = $stmt->fetch()): ?>
             <tr>
-                <td><?php echo htmlspecialchars($row['entry_id']); ?></td>
-                <td><?php echo htmlspecialchars($row['field1']); ?></td>
-                <td><?php echo htmlspecialchars($row['field2']); ?></td>
-                <td><?php echo htmlspecialchars($row['field3']); ?></td>
+                <td><?php echo htmlspecialchars($row['album']); ?></td>
+                <td><?php echo htmlspecialchars($row['rating']); ?></td>
+                <td><?php echo htmlspecialchars($row['comments']); ?></td>
                 <td>
-                    <form action="index3.php" method="post" style="display:inline;">
-                        <input type="hidden" name="delete_id" value="<?php echo $row['entry_id']; ?>">
-                        <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this entry?');">
+                    <form action="ratings.php" method="post" style="display:inline;">
                     </form>
                 </td>
             </tr>
             <?php endwhile; ?>
         </tbody>
     </table>
+
+    <p><a href="index.php" style="color: #007bff; font-size: 16px; text-decoration: none; margin-top: 20px; display: inline-block;">Index!</a></p>
 </body>
 </html>

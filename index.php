@@ -192,6 +192,8 @@ $stmt = $pdo->query($sql);
            <br><br>
            <input type="submit" value="Track Album">
        </form>
+       <p><a href="ratings.php" style="color: #007bff; font-size: 16px; text-decoration: none; margin-top: 20px; display: inline-block;">Ratings!</a></p>
+</div>
    </div>
 </body>
 </html>
