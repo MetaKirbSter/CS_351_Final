@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
-$sql = 'SELECT entry_id, field1, field2, field3, field4, field5, field6 FROM listen_log';
+$sql = 'SELECT field1, field2, field3, field4, field5, field6 FROM listen_log';
 $stmt = $pdo->query($sql);
 ?>
 
@@ -76,7 +76,7 @@ $stmt = $pdo->query($sql);
         <input type="submit" value="Add Entry">
     </form>
 
-    <h1>Music Log:</h1>
+    <h1>Music Data Listing from Table ''</h1>
     <table class="half-width-left-align">
         <thead>
             <tr>
@@ -97,11 +97,6 @@ $stmt = $pdo->query($sql);
                 <td><?php echo htmlspecialchars($row['field4']); ?></td>
                 <td><?php echo htmlspecialchars($row['field5']); ?></td>
                 <td><?php echo htmlspecialchars($row['field6']); ?></td>
-                <td>
-                    <form action="index.php" method="post" style="display:inline;">
-                        <input type="hidden" name="delete_id" value="<?php echo $row['entry_id']; ?>">
-                        <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this entry?');">
-                    </form>
                 </td>
             </tr>
             <?php endwhile; ?>

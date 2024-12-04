@@ -76,7 +76,7 @@ $stmt = $pdo->query($sql);
             <?php endwhile; ?>
         </tbody>
     </table>
-    <p><a href="about.html" style="color: #007bff; font-size: 16px; text-decoration: none; margin-top: 20px; display: inline-block;">About!</a></p>
+    <p><a href="about.php" style="color: #007bff; font-size: 16px; text-decoration: none; margin-top: 20px; display: inline-block;">About!</a></p>
     <p><a href="index.php" style="color: #007bff; font-size: 16px; text-decoration: none; margin-top: 20px; display: inline-block;">Index!</a></p>
 </body>
 </html>
