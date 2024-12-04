@@ -1,56 +1,54 @@
-/* Set the background color for the entire page */
+/*GPT assisted with styles*/
 body {
-   background-color: #f0f0f0; /* Light gray background color */
+   background-color: #fccb9b; 
    font-family: Arial, sans-serif;
    margin: 0;
    padding: 0;
 }
 
-/* Style for the table container */
+
 .table-container {
    margin: 20px;
    padding: 20px;
-   background-color: #ffffff; /* White background for the table section */
+   background-color: #e67575; 
    border-radius: 8px;
    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Style for the form container */
+
 .form-container {
    margin: 20px;
    padding: 20px;
-   background-color: #ffffff; /* White background for the form section */
+   background-color: #ffffff; 
    border-radius: 8px;
    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Table style */
+
 table {
    width: 100%;
    border-collapse: collapse;
 }
 
-/* Table header style */
+
 th {
-   background-color: #007bff; /* Blue background for header */
+   background-color: #3351e9; 
    color: white;
    padding: 10px;
    text-align: left;
 }
 
-/* Table row style */
 td {
-   background-color: #f9f9f9; /* Light gray for table rows */
+   background-color: #bdd9c3; 
    padding: 10px;
    border-bottom: 1px solid #ddd;
 }
 
-/* Table row hover effect */
+
 tr:hover {
-   background-color: #e9ecef; /* Light blue on hover */
+   background-color: #e9ecef; 
 }
 
-/* Links in the footer */
 a {
    text-decoration: none;
    font-size: 16px;
@@ -61,7 +59,6 @@ a:hover {
    text-decoration: underline;
 }
 
-/* Form input and button styling */
 input[type="text"] {
    width: 100%;
    padding: 10px;
@@ -71,7 +68,7 @@ input[type="text"] {
 }
 
 input[type="submit"] {
-   background-color: #007bff; /* Blue button */
+   background-color: #007bff; 
    color: white;
    border: none;
    padding: 10px 20px;
@@ -80,5 +77,5 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-   background-color: #0056b3; /* Darker blue on hover */
+   background-color: #0056b3;
 }
