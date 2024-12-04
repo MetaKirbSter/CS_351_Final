@@ -76,11 +76,10 @@ $stmt = $pdo->query($sql);
         <input type="submit" value="Add Entry">
     </form>
 
-    <h1>Project Data Listing from Table 'data1'</h1>
+    <h1>Music Log:</h1>
     <table class="half-width-left-align">
         <thead>
             <tr>
-                <th>Entry ID</th>
                 <th>Album Name</th>
                 <th>Artist</th>
                 <th>Release Date</th>
@@ -92,7 +91,6 @@ $stmt = $pdo->query($sql);
         <tbody>
             <?php while ($row = $stmt->fetch()): ?>
             <tr>
-                <td><?php echo htmlspecialchars($row['entry_id']); ?></td>
                 <td><?php echo htmlspecialchars($row['field1']); ?></td>
                 <td><?php echo htmlspecialchars($row['field2']); ?></td>
                 <td><?php echo htmlspecialchars($row['field3']); ?></td>
@@ -100,7 +98,7 @@ $stmt = $pdo->query($sql);
                 <td><?php echo htmlspecialchars($row['field5']); ?></td>
                 <td><?php echo htmlspecialchars($row['field6']); ?></td>
                 <td>
-                    <form action="index3.php" method="post" style="display:inline;">
+                    <form action="index.php" method="post" style="display:inline;">
                         <input type="hidden" name="delete_id" value="<?php echo $row['entry_id']; ?>">
                         <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this entry?');">
                     </form>

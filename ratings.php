@@ -38,7 +38,7 @@ $stmt = $pdo->query($sql);
 <head>
     <meta charset="UTF-8">
     <title>Album Rating Screen</title>
-<link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=1.0">
 </head>
 <body>
     <h2>Add New Rating</h2>
@@ -59,7 +59,6 @@ $stmt = $pdo->query($sql);
     <table class="half-width-left-align">
         <thead>
             <tr>
-                <th>Entry ID</th>
                 <th>Album</th>
                 <th>Rating</th>
                 <th>Comments</th>
@@ -71,10 +70,8 @@ $stmt = $pdo->query($sql);
                 <td><?php echo htmlspecialchars($row['album']); ?></td>
                 <td><?php echo htmlspecialchars($row['rating']); ?></td>
                 <td><?php echo htmlspecialchars($row['comments']); ?></td>
-                <td>
                     <form action="ratings.php" method="post" style="display:inline;">
                     </form>
-                </td>
             </tr>
             <?php endwhile; ?>
         </tbody>

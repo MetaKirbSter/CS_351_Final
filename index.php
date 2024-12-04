@@ -74,13 +74,13 @@ $stmt = $pdo->query($sql);
 <head>
    <meta charset="UTF-8">
    <title>Music Tracker Log!</title>
-   <link rel="stylesheet" href="styles.css">
-</head>
+   <link rel="stylesheet" href="styles.css?v=1.0">
+   </head>
 <body>
    <!-- Hero Section -->
    <div class="hero-section">
        <h1 class="hero-title">Music Tracker Log</h1>
-       <p class="hero-subtitle">"Because RateYourMusic is too pretentious!"</p>
+       <h2 class="hero-subtitle">"Because RateYourMusic is too pretentious!"</h2>
       
        <!-- Search moved to hero section -->
        <div class="hero-search">
