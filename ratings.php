@@ -38,7 +38,7 @@ $stmt = $pdo->query($sql);
 <head>
     <meta charset="UTF-8">
     <title>Album Rating Screen</title>
-    <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h2>Add New Rating</h2>
