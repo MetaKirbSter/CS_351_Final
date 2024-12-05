@@ -8,6 +8,9 @@ if (!is_logged_in()) {
    exit;
 }
 
+$name = isset($_SESSION['name']) ? $_SESSION['name'] : 'Not Provided';
+$email = isset($_SESSION['email']) ? $_SESSION['email'] : 'Not Provided';
+
 $host = 'localhost';
 $dbname = 'muzak';
 $user = 'meta';
@@ -52,6 +55,10 @@ $stmt = $pdo->query($sql);
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<div class="user-info">
+        <h2>Welcome <?php echo htmlspecialchars($name); ?>!</h2>
+        <p>Email: <?php echo htmlspecialchars($email); ?></p>
+    </div>
    <meta charset="UTF-8">
    <title>Music Tracker Log!</title>
    <link rel="stylesheet" href="styles.css?v=1.0">
