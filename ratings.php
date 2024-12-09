@@ -52,7 +52,7 @@ $stmt = $pdo->query($sql);
         <form action="ratings.php" method="post">
             <label for="album">Album Name:</label>
             <input type="text" id="album" name="album" required>
-            <label for="rating">Rating (1-5):</label>
+            <label for="rating">Rating (1-10):</label>
             <input type="text" id="rating" name="rating" required>
             <label for="comments">Comments:</label>
             <input type="text" id="comments" name="comments" required>

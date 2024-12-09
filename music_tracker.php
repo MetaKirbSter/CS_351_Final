@@ -63,82 +63,17 @@ $entries = $stmt->fetchAll();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Listening Log</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-        }
-        .hero {
-            background: url('topster.jpg') no-repeat center center / cover, linear-gradient(to bottom, #6c63ff, #a1a1ff);
-            color: white;
-            text-align: center;
-            padding: 3rem 0;
-        }
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-        }
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-        }
-        .hero button {
-            padding: 1rem 2rem;
-            font-size: 1.2rem;
-            border-radius: 5px;
-            background-color: white;
-            color: #6c63ff;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .container {
-            margin: 2rem auto;
-            padding: 1rem;
-            max-width: 800px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        table th, table td {
-            padding: 0.8rem;
-            text-align: left;
-            border: 1px solid #ddd;
-        }
-        table th {
-            background-color: #6c63ff;
-            color: white;
-        }
-        table tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-        input[type="text"], input[type="submit"] {
-            width: 100%;
-            padding: 0.5rem;
-            margin-bottom: 1rem;
-        }
-        input[type="submit"] {
-            background-color: #6c63ff;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-    </style>
 </head>
 <body>
-    <div class="hero">
+<div class="hero">
+    <div class="hero-content">
         <h1>Welcome to Your Music Log</h1>
         <p>Track your favorite albums, listening habits, and much more!</p>
-        <a href="#add-entry"><button>Add Your First Entry</button></a>
+        <a href="#add-entry">
+            <button>Add Your First Entry</button>
+        </a>
     </div>
+</div>
 
     <div class="container" id="add-entry">
         <h2>Add New Project</h2>
