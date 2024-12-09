@@ -239,7 +239,7 @@ input[type="password"]:focus {
 .form-container {
    max-width: 500px;
    margin: 100px auto;
-   background: rgb(134, 14, 14);
+   background: rgb(255, 184, 184);
    padding: 2rem;
    border-radius: 10px;
    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
@@ -336,4 +336,32 @@ input[type="email"]:focus {
 
 .nav-links a:hover {
    color: #a1a1ff;
+}
+
+.link-container {
+   display: flex; /* Enable flexbox */
+   justify-content: center; /* Center links horizontally */
+   gap: 1rem; /* Add space between the links */
+   padding: 1rem;
+   border-radius: 10px; /* Rounded corners for the container */
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.link-container a {
+   display: inline-block; /* Ensure links behave like block elements */
+   padding: 1rem 1.5rem; /* Add padding inside each link */
+   text-align: center; /* Center text inside the boxes */
+   background-color: #5c6bc0; /* Primary color for the link boxes */
+   color: white; /* White text for contrast */
+   text-decoration: none; /* Remove underline */
+   font-size: 1rem; /* Standard font size */
+   border-radius: 5px; /* Slightly rounded corners for the boxes */
+   transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions for hover effects */
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for each link box */
+}
+
+.link-container a:hover {
+   background-color: #81d4fa; /* Light teal on hover */
+   transform: scale(1.05); /* Slightly enlarge on hover */
+   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
 }

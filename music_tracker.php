@@ -38,13 +38,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'field6' => htmlspecialchars($_POST['field6']),
         ];
 
-        $insert_sql = 'INSERT INTO data1 (field1, field2, field3, field4, field5, field6) 
-                       VALUES (:field1, :field2, :field3, :field4, :field5, :field6)';
+        $insert_sql = 'INSERT INTO listen_log (album, artist, release_date, listen_date, music_platform, collection_status) 
+               VALUES (:field1, :field2, :field3, :field4, :field5, :field6)';
         $stmt = $pdo->prepare($insert_sql);
         $stmt->execute($fields);
     } elseif (isset($_POST['delete_id'])) {
         $delete_id = (int) $_POST['delete_id'];
-        $delete_sql = 'DELETE FROM data1 WHERE entry_id = :entry_id';
+        $delete_sql = 'DELETE FROM listen_log WHERE entry_id = :entry_id';
         $stmt = $pdo->prepare($delete_sql);
         $stmt->execute(['entry_id' => $delete_id]);
     }
@@ -127,6 +127,10 @@ $entries = $stmt->fetchAll();
                 <?php endforeach; ?>
             </tbody>
         </table>
+    </div>
+    <div class="link-container">
+        <a href="index.php">About</a>
+        <a href="ratings.php">Ratings</a>
     </div>
 </body>
 </html>
