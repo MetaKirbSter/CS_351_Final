@@ -1,129 +1,133 @@
-/* GPT assisted with styles */
 body {
-   background: linear-gradient(135deg, #84fabb, #3dcab4);
-   font-family: Arial, sans-serif;
+   font-family: 'Arial', sans-serif;
    margin: 0;
    padding: 0;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: flex-start;
-   min-height: 100vh;
+   background-color: #f4f4f9;
+}
+
+.hero {
+   background: url('topster.jpg') no-repeat center center / cover, linear-gradient(to bottom, #6c63ff, #a1a1ff);
+   color: white;
+   text-align: center;
+   padding: 4rem 0;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.hero h1 {
+   font-size: 3.5rem;
+   margin-bottom: 1rem;
+   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+   font-size: 1.5rem;
+   margin-bottom: 2rem;
+   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.hero button {
+   padding: 1rem 2rem;
+   font-size: 1.2rem;
+   border-radius: 5px;
+   background-color: white;
+   color: #6c63ff;
+   border: none;
+   cursor: pointer;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+   transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.hero button:hover {
+   background-color: #a1a1ff;
+   transform: scale(1.05);
+}
+
+.container {
+   margin: 2rem auto;
+   padding: 2rem;
+   max-width: 900px;
+   background: white;
+   border-radius: 10px;
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+   text-align: left;
+}
+
+.container h2 {
+   font-size: 2rem;
+   margin-bottom: 1.5rem;
    color: #333;
 }
 
-h2 {
-   margin-bottom: 15px;
-   font-size: 24px;
-   color: #2a2a2a;
-   text-transform: uppercase;
-   letter-spacing: 1.2px;
+form label {
+   display: block;
+   margin-bottom: 0.5rem;
+   font-weight: bold;
 }
 
-/* Table Container */
-.table-container {
-   margin: 20px;
-   padding: 20px;
-   background-color: #e67575;
-   border-radius: 8px;
-   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+input[type="text"], input[type="submit"] {
    width: 100%;
-   max-width: 1200px;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
+   padding: 1rem;
+   margin-bottom: 1.2rem;
+   border-radius: 8px;
+   border: 1px solid #ccc;
+   font-size: 1rem;
+   transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+   border-color: #6c63ff;
+   outline: none;
+}
+
+input[type="submit"] {
+   background-color: #6c63ff;
+   color: white;
+   border: none;
+   cursor: pointer;
+   font-size: 1.1rem;
+   transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+input[type="submit"]:hover {
+   background-color: #a1a1ff;
+   transform: scale(1.05);
 }
 
 table {
    width: 100%;
    border-collapse: collapse;
-   border: 1px solid #ccc;
+   margin-top: 1.5rem;
 }
 
-th {
-   background-color: #3351e9;
-   color: white;
-   padding: 10px;
+table th, table td {
+   padding: 1rem;
    text-align: left;
-}
-th:hover {
-   background-color: #4178e0;
-}
-
-td {
-   background-color: #bdd9c3;
-   padding: 10px;
    border: 1px solid #ddd;
 }
 
-tr:hover {
-   background-color: #d4e8f4;
-   transition: background-color 0.3s ease-in-out;
+table th {
+   background-color: #6c63ff;
+   color: white;
 }
 
-/* Form Container */
-.form-container {
-   margin: 20px;
-   padding: 20px;
-   background-color: #d0e1c2;
-   border-radius: 8px;
-   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-   width: 100%;
-   max-width: 600px;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
+table tr:nth-child(even) {
+   background-color: #f9f9f9;
 }
 
-form {
-   width: 100%;
+table tr:hover {
+   background-color: #f1f1f1;
 }
 
-label {
-   margin-bottom: 8px;
-   font-size: 16px;
-}
-
-input[type="text"] {
-   width: 100%;
-   padding: 10px;
-   margin-bottom: 10px;
-   border: 1px solid #ccc;
-   border-radius: 8px;
-}
-
-input[type="submit"] {
-   background-color: #17a2b8;
+.delete-btn {
+   background-color: #ff4d4d;
    color: white;
    border: none;
-   padding: 10px 20px;
-   border-radius: 4px;
+   padding: 0.5rem 1rem;
+   border-radius: 5px;
    cursor: pointer;
-   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-   transition: background-color 0.3s, transform 0.2s;
+   transition: background-color 0.3s ease;
 }
 
-input[type="submit"]:hover {
-   background-color: #138496;
-   transform: translateY(-2px);
-}
-
-/* Links */
-a {
-   color: #007bff;
-   text-decoration: none;
-   position: relative;
-}
-a::after {
-   content: "";
-   position: absolute;
-   bottom: -2px;
-   left: 0;
-   width: 0;
-   height: 2px;
-   background: #007bff;
-   transition: width 0.3s ease-in-out;
-}
-a:hover::after {
-   width: 100%;
+.delete-btn:hover {
+   background-color: #ff3333;
 }
