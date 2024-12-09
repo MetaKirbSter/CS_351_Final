@@ -1,8 +1,9 @@
+/*GPT assisted considerably with styles*/
 body {
    font-family: 'Arial', sans-serif;
    margin: 0;
    padding: 0;
-   background-color: #f4f4f9;
+   background-color: rgb(11, 11, 256);
 }
 
 .hero {
@@ -11,21 +12,33 @@ body {
    text-align: center;
    padding: 4rem 0;
    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+   position: relative;
 }
 
-.hero h1 {
+.hero-content {
+   display: inline-block;
+   background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+   padding: 2rem;
+   border-radius: 10px;
+   border: 2px solid #ffffff; /* White border */
+   text-align: center;
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content h1 {
    font-size: 3.5rem;
    margin-bottom: 1rem;
-   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+   text-shadow: none; /* Remove text shadow for cleaner look */
+   color: #fff;
 }
 
-.hero p {
+.hero-content p {
    font-size: 1.5rem;
    margin-bottom: 2rem;
-   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+   color: #ddd;
 }
 
-.hero button {
+.hero-content button {
    padding: 1rem 2rem;
    font-size: 1.2rem;
    border-radius: 5px;
@@ -37,10 +50,11 @@ body {
    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.hero button:hover {
+.hero-content button:hover {
    background-color: #a1a1ff;
    transform: scale(1.05);
 }
+
 
 .container {
    margin: 2rem auto;
@@ -130,4 +144,202 @@ table tr:hover {
 
 .delete-btn:hover {
    background-color: #ff3333;
+}
+
+/* Authentication Container */
+.auth-container {
+   max-width: 400px;
+   margin: 100px auto;
+   background: white;
+   padding: 2rem;
+   border-radius: 10px;
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+   text-align: center;
+}
+
+/* Title Styling */
+.auth-title {
+   font-size: 2rem;
+   color: #6c63ff;
+   margin-bottom: 1rem;
+   font-weight: bold;
+}
+
+/* Error Message */
+.error-message {
+   background-color: #ff4d4d;
+   color: white;
+   padding: 0.8rem;
+   border-radius: 5px;
+   margin-bottom: 1rem;
+   font-size: 0.9rem;
+}
+
+/* Form Styling */
+.auth-form {
+   display: flex;
+   flex-direction: column;
+   gap: 1rem;
+}
+
+.form-group {
+   text-align: left;
+}
+
+label {
+   font-weight: bold;
+   margin-bottom: 0.5rem;
+   display: block;
+}
+
+input[type="text"], 
+input[type="password"] {
+   width: 100%;
+   padding: 0.8rem;
+   border: 1px solid #ddd;
+   border-radius: 5px;
+   font-size: 1rem;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+   border-color: #6c63ff;
+   outline: none;
+   box-shadow: 0 0 5px rgba(108, 99, 255, 0.5);
+}
+
+/* Button Styling */
+.auth-button {
+   padding: 0.8rem;
+   font-size: 1rem;
+   background-color: #6c63ff;
+   color: white;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.auth-button:hover {
+   background-color: #a1a1ff;
+   transform: scale(1.05);
+}
+
+/* Auth Text */
+.auth-text {
+   margin-top: 1rem;
+   font-size: 0.9rem;
+}
+
+.auth-text a {
+   color: #6c63ff;
+   text-decoration: none;
+   font-weight: bold;
+}
+
+.auth-text a:hover {
+   text-decoration: underline;
+}
+
+/* Form Container */
+.form-container {
+   max-width: 500px;
+   margin: 100px auto;
+   background: white;
+   padding: 2rem;
+   border-radius: 10px;
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+   text-align: center;
+}
+
+/* Title and Subtitle */
+.form-title {
+   font-size: 2rem;
+   margin-bottom: 0.5rem;
+   color: #6c63ff;
+   font-weight: bold;
+}
+
+.form-subtitle {
+   font-size: 1rem;
+   color: #666;
+   margin-bottom: 1.5rem;
+}
+
+/* Form Styling */
+.info-form {
+   display: flex;
+   flex-direction: column;
+   gap: 1rem;
+}
+
+.form-group {
+   text-align: left;
+}
+
+label {
+   font-weight: bold;
+   margin-bottom: 0.5rem;
+   display: block;
+}
+
+input[type="text"], 
+input[type="email"] {
+   width: 100%;
+   padding: 0.8rem;
+   border: 1px solid #ddd;
+   border-radius: 5px;
+   font-size: 1rem;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus {
+   border-color: #6c63ff;
+   outline: none;
+   box-shadow: 0 0 5px rgba(108, 99, 255, 0.5);
+}
+
+/* Submit Button */
+.form-button {
+   padding: 0.8rem;
+   font-size: 1rem;
+   background-color: #6c63ff;
+   color: white;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.form-button:hover {
+   background-color: #a1a1ff;
+   transform: scale(1.05);
+}
+
+/* Thank You Message */
+.thank-you-message {
+   background-color: #f4f4f9;
+   padding: 1rem;
+   border: 1px solid #6c63ff;
+   border-radius: 5px;
+   margin-top: 1rem;
+   text-align: left;
+}
+
+/* Navigation Links */
+.nav-links {
+   margin-top: 2rem;
+   display: flex;
+   justify-content: space-around;
+}
+
+.nav-links a {
+   color: #6c63ff;
+   text-decoration: none;
+   font-weight: bold;
+   transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+   color: #a1a1ff;
 }
