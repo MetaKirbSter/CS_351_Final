@@ -93,6 +93,10 @@ input[type="submit"]:hover {
    transform: scale(1.05);
 }
 
+.table-container {
+   margin-top: 3rem;
+}
+
 table {
    width: 100%;
    border-collapse: collapse;
@@ -130,4 +134,20 @@ table tr:hover {
 
 .delete-btn:hover {
    background-color: #ff3333;
+}
+
+.link-container {
+   text-align: center;
+   margin-top: 2rem;
+}
+
+.link-container a {
+   font-size: 1.1rem;
+   color: #007bff;
+   text-decoration: none;
+   margin: 0 1rem;
+}
+
+.link-container a:hover {
+   text-decoration: underline;
 }

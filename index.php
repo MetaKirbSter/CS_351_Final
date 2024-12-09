@@ -3,13 +3,16 @@ session_start();
 
 // Check if form is submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Store user info in session
     $_SESSION['name'] = $_POST['name'] ?? '';
     $_SESSION['email'] = $_POST['email'] ?? '';
-    header('Location: index.php');
+
+    // Redirect to login page after submitting the form
+    header('Location: login.php');  // Redirect to login page (adjust the page as needed)
     exit();
 }
 ?>
-<!--GPT assisted with form verification-->
+<!-- GPT assisted with form verification -->
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -17,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </head>
     <body>
         <h2>Enter your info below!</h2>
-        <!--GPT assisted me with forms!-->
+        <!-- GPT assisted me with forms! -->
         <form action="" method="POST">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required><br><br>

@@ -38,45 +38,54 @@ $stmt = $pdo->query($sql);
 <head>
     <meta charset="UTF-8">
     <title>Album Rating Screen</title>
-    <link rel="stylesheet" href="styles.css?v=1.0">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h2>Add New Rating</h2>
-    <form action="ratings.php" method="post">
-        <label for="album">Album Name:</label>
-        <input type="text" id="album" name="album" required>
-        <br><br>
-        <label for="rating">Rating:</label>
-        <input type="text" id="rating" name="rating" required>
-        <br><br>
-        <label for="comments">Comments:</label>
-        <input type="text" id="comments" name="comments" required>
-        <br><br>
-        <input type="submit" value="Add Entry">
-    </form>
 
-    <h1>Ratings Data</h1>
-    <table class="half-width-left-align">
-        <thead>
-            <tr>
-                <th>Album</th>
-                <th>Rating</th>
-                <th>Comments</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php while ($row = $stmt->fetch()): ?>
-            <tr>
-                <td><?php echo htmlspecialchars($row['album']); ?></td>
-                <td><?php echo htmlspecialchars($row['rating']); ?></td>
-                <td><?php echo htmlspecialchars($row['comments']); ?></td>
-                    <form action="ratings.php" method="post" style="display:inline;">
-                    </form>
-            </tr>
-            <?php endwhile; ?>
-        </tbody>
-    </table>
-    <p><a href="index.php" style="color: #007bff; font-size: 16px; text-decoration: none; margin-top: 20px; display: inline-block;">About!</a></p>
-    <p><a href="music_tracker.php" style="color: #007bff; font-size: 16px; text-decoration: none; margin-top: 20px; display: inline-block;">Log!</a></p>
+    <div class="hero">
+        <h1>Welcome to the Album Rating Page</h1>
+        <p>Share your thoughts and ratings on your favorite albums!</p>
+    </div>
+
+    <div class="container">
+        <h2>Add a New Rating</h2>
+        <form action="ratings.php" method="post">
+            <label for="album">Album Name:</label>
+            <input type="text" id="album" name="album" required>
+            <label for="rating">Rating (1-5):</label>
+            <input type="text" id="rating" name="rating" required>
+            <label for="comments">Comments:</label>
+            <input type="text" id="comments" name="comments" required>
+            <input type="submit" value="Add Entry">
+        </form>
+    </div>
+
+    <div class="table-container">
+        <h2>Current Ratings</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Album</th>
+                    <th>Rating</th>
+                    <th>Comments</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php while ($row = $stmt->fetch()): ?>
+                <tr>
+                    <td><?php echo htmlspecialchars($row['album']); ?></td>
+                    <td><?php echo htmlspecialchars($row['rating']); ?></td>
+                    <td><?php echo htmlspecialchars($row['comments']); ?></td>
+                </tr>
+                <?php endwhile; ?>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="link-container">
+        <a href="index.php">About</a>
+        <a href="music_tracker.php">Log</a>
+    </div>
+
 </body>
 </html>
