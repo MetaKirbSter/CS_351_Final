@@ -3,11 +3,11 @@ body {
    font-family: 'Arial', sans-serif;
    margin: 0;
    padding: 0;
-   background-color: rgb(11, 11, 256);
+   background-color: #92d3c1; 
 }
 
 .hero {
-   background: url('topster.jpg') no-repeat center center / cover, linear-gradient(to bottom, #6c63ff, #a1a1ff);
+   background: url('topster.jpg') no-repeat center center / cover, linear-gradient(to bottom, #5c6bc0, #81d4fa); 
    color: white;
    text-align: center;
    padding: 4rem 0;
@@ -17,7 +17,7 @@ body {
 
 .hero-content {
    display: inline-block;
-   background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+   background-color: rgba(0, 0, 0, 0.5); /* Slightly darker background for better contrast */
    padding: 2rem;
    border-radius: 10px;
    border: 2px solid #ffffff; /* White border */
@@ -28,7 +28,6 @@ body {
 .hero-content h1 {
    font-size: 3.5rem;
    margin-bottom: 1rem;
-   text-shadow: none; /* Remove text shadow for cleaner look */
    color: #fff;
 }
 
@@ -43,7 +42,7 @@ body {
    font-size: 1.2rem;
    border-radius: 5px;
    background-color: white;
-   color: #6c63ff;
+   color: #5c6bc0; /* Primary color */
    border: none;
    cursor: pointer;
    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -51,16 +50,15 @@ body {
 }
 
 .hero-content button:hover {
-   background-color: #a1a1ff;
+   background-color: #81d4fa; /* Light teal for hover effect */
    transform: scale(1.05);
 }
-
 
 .container {
    margin: 2rem auto;
    padding: 2rem;
    max-width: 900px;
-   background: white;
+   background: #ffffff; /* White background */
    border-radius: 10px;
    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
    text-align: left;
@@ -89,12 +87,12 @@ input[type="text"], input[type="submit"] {
 }
 
 input[type="text"]:focus {
-   border-color: #6c63ff;
+   border-color: #5c6bc0; /* Primary color for focus state */
    outline: none;
 }
 
 input[type="submit"] {
-   background-color: #6c63ff;
+   background-color: #5c6bc0; /* Primary color */
    color: white;
    border: none;
    cursor: pointer;
@@ -103,7 +101,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-   background-color: #a1a1ff;
+   background-color: #81d4fa; /* Light teal for hover effect */
    transform: scale(1.05);
 }
 
@@ -120,7 +118,7 @@ table th, table td {
 }
 
 table th {
-   background-color: #6c63ff;
+   background-color: #5c6bc0; /* Primary color */
    color: white;
 }
 
@@ -133,7 +131,7 @@ table tr:hover {
 }
 
 .delete-btn {
-   background-color: #ff4d4d;
+   background-color: #ff7043; /* Soft coral */
    color: white;
    border: none;
    padding: 0.5rem 1rem;
@@ -143,10 +141,9 @@ table tr:hover {
 }
 
 .delete-btn:hover {
-   background-color: #ff3333;
+   background-color: #ff5722; /* Darker coral */
 }
 
-/* Authentication Container */
 .auth-container {
    max-width: 400px;
    margin: 100px auto;
@@ -157,17 +154,15 @@ table tr:hover {
    text-align: center;
 }
 
-/* Title Styling */
 .auth-title {
    font-size: 2rem;
-   color: #6c63ff;
+   color: #5c6bc0; /* Primary color */
    margin-bottom: 1rem;
    font-weight: bold;
 }
 
-/* Error Message */
 .error-message {
-   background-color: #ff4d4d;
+   background-color: #ff7043; /* Soft coral */
    color: white;
    padding: 0.8rem;
    border-radius: 5px;
@@ -175,7 +170,6 @@ table tr:hover {
    font-size: 0.9rem;
 }
 
-/* Form Styling */
 .auth-form {
    display: flex;
    flex-direction: column;
@@ -245,10 +239,10 @@ input[type="password"]:focus {
 .form-container {
    max-width: 500px;
    margin: 100px auto;
-   background: white;
+   background: rgb(134, 14, 14);
    padding: 2rem;
    border-radius: 10px;
-   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+   box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
    text-align: center;
 }
 

@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <div class="form-container">
         <h1 class="form-title">Welcome to the Music Tracker!</h1>
-        <p class="form-subtitle">Enter your details below to get started. Use the navigation links to explore the tracker or ratings pages!</p>
+        <h2 class="form-subtitle">Enter your details below to get started. Use the navigation links to explore the tracker or ratings pages!</h2>
 
         <!-- Form Section -->
         <form action="" method="POST" class="info-form">

@@ -42,10 +42,15 @@ $stmt = $pdo->query($sql);
 </head>
 <body>
 
-    <div class="hero">
-        <h1>Welcome to the Album Rating Page</h1>
-        <p>Share your thoughts and ratings on your favorite albums!</p>
+<div class="hero">
+    <div class="hero-content">
+        <h1>Welcome to the album rating page!</h1>
+        <p>Check ratings and personal comments you've given!</p>
+        <a href="#add-entry">
+            <button>Add Your First Entry</button>
+        </a>
     </div>
+</div>
 
     <div class="container">
         <h2>Add a New Rating</h2>
