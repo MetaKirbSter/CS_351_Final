@@ -44,14 +44,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->execute($fields);
     } elseif (isset($_POST['delete_id'])) {
         $delete_id = (int) $_POST['delete_id'];
-        $delete_sql = 'DELETE FROM data1 WHERE entry_id = :entry_id';
+        $delete_sql = 'DELETE FROM listen_log WHERE entry_id = :entry_id';
         $stmt = $pdo->prepare($delete_sql);
         $stmt->execute(['entry_id' => $delete_id]);
     }
 }
 
 // Fetch Entries
-$sql = 'SELECT entry_id, field1, field2, field3, field4, field5, field6 FROM listen_log';
+$sql = 'SELECT entry_id, album, artist, release_date, listen_date, music_platform, collection_status FROM listen_log';
 $stmt = $pdo->query($sql);
 $entries = $stmt->fetchAll();
 ?>
@@ -107,12 +107,12 @@ $entries = $stmt->fetchAll();
             <tbody>
                 <?php foreach ($entries as $row): ?>
                 <tr>
-                    <td><?php echo htmlspecialchars($row['field1']); ?></td>
-                    <td><?php echo htmlspecialchars($row['field2']); ?></td>
-                    <td><?php echo htmlspecialchars($row['field3']); ?></td>
-                    <td><?php echo htmlspecialchars($row['field4']); ?></td>
-                    <td><?php echo htmlspecialchars($row['field5']); ?></td>
-                    <td><?php echo htmlspecialchars($row['field6']); ?></td>
+                    <td><?php echo htmlspecialchars($row['album']); ?></td>
+                    <td><?php echo htmlspecialchars($row['artist']); ?></td>
+                    <td><?php echo htmlspecialchars($row['release_date']); ?></td>
+                    <td><?php echo htmlspecialchars($row['listen_date']); ?></td>
+                    <td><?php echo htmlspecialchars($row['music_platform']); ?></td>
+                    <td><?php echo htmlspecialchars($row['collection_status']); ?></td>
                     <td>
                         <form action="listen_log.php" method="post" style="display:inline;">
                             <input type="hidden" name="delete_id" value="<?php echo $row['entry_id']; ?>">
@@ -123,6 +123,10 @@ $entries = $stmt->fetchAll();
                 <?php endforeach; ?>
             </tbody>
         </table>
+    </div>
+    <div class="link-container">
+        <a href="index.php">About</a>
+        <a href="ratings.php">Ratings</a>
     </div>
 </body>
 </html>

@@ -82,9 +82,9 @@ $entries = $stmt->fetchAll();
             <input type="text" id="field1" name="field1" required>
             <label for="field2">Artist:</label>
             <input type="text" id="field2" name="field2" required>
-            <label for="field3">Release Date:</label>
+            <label for="field3">Release Date (YYYY-MM-DD):</label>
             <input type="text" id="field3" name="field3" required>
-            <label for="field4">Listened On:</label>
+            <label for="field4">Listened On (YYYY-MM-DD):</label>
             <input type="text" id="field4" name="field4" required>
             <label for="field5">Music Platform:</label>
             <input type="text" id="field5" name="field5" required>
